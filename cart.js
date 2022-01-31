@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,24 +18,26 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99,
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+  },
+  {
+    name: "salad",
+    price: 7.99,
+  },
+];
 
+const summedPrice = cart.reduce((acc, el) => {
+  console.log(acc, el);
+  return acc + el.price;
+}, 0);
 
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+// console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -53,9 +54,12 @@ const cart = [
     decimals, for example: .06 for a 6% tax.
 */
 
-//CODE HERE
+const calcFinalPrice = (total, coupon, tax) => {
+  let finalTotal = (total - coupon) * (1 + tax);
+  return finalTotal;
+};
 
-
+// console.log(calcFinalPrice(10, 2, 0.06));
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -78,7 +82,10 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+firstName (String)
+LastName(String)
+creditCard (number)
+phoneNumber (String)
 
 */
 
@@ -87,4 +94,9 @@ const cart = [
     guidelines.
 */
 
-//CODE HERE
+const customer = {
+  firstName: "Chris"
+  lastName: "Cluney"
+  creditCard: 0000000000000000
+  phoneNumber: "111-111-1111"
+}

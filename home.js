@@ -7,7 +7,6 @@
     page of the restaurant's website.
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /* 
     Write an *arrow* function called `greetUser`
@@ -22,12 +21,8 @@
 */
 
 const greatUser = (username) => {
-    let myName = String(username)
-    console.log(`Welcome back, ${myName}`) 
-}
-
-// greatUser('Chris')
-
+  return `Welcome back ${username}`;
+};
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -49,21 +44,17 @@ const greatUser = (username) => {
         // `You're in our delivery zone!`
 */
 
-const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
+const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206];
 
-function canWeDeliver(num1) {
-    
-    for(let i = 0; i < deliveryAreaZipCodes.length; i++)
-    if (num1 !== deliveryAreaZipCodes[i]){
-        console.log(`Sorry, we can't deliver to that address`)
-    } else {
-        console.log(`You're in our delivery zone!`)
-    }
-
+function canWeDeliver(zipCode) {
+  if (deliveryAreaZipCodes.includes(zipCode)) {
+    return "You're in our delivery zone";
+  } else {
+    return `Sorry, we can't deliver to that address`;
+  }
 }
-// canWeDeliver(85205)
 
-
+// console.log(canWeDeliver(85205));
 /* 
     Problem 2 Continued
 
@@ -81,15 +72,17 @@ function canWeDeliver(num1) {
     Name your new function `canWeDeliverTwo`.
 */
 
-function canWeDeliver2(num1) {
-    if(deliveryAreaZipCodes.includes(`num1`));
-    console.log(true)
-} 
-    console.log(false)
+const canWeDeliverTwo = (zipCode) => {
+  let message = "Sorry we can't deliver to that address";
+  deliveryAreaZipCodes.forEach((zip) => {
+    if (zipCode === zip) {
+      message = "You're in our delivery zone";
+    }
+  });
+  return message;
+};
 
-// canWeDeliver(85205)
-
-
+// console.log(canWeDeliverTwo(85205));
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -104,15 +97,15 @@ function canWeDeliver2(num1) {
 */
 
 const deals = [
-    {
-        title: '15% Off!', 
-        desc: 'Applied to your entire order when you spend $30 or more'
-    }, 
-    {
-        title: 'Free Kids Meal with 2 Regular Entrees', 
-        desc: '   This deal lasts until the end of March! '
-    }
-]
+  {
+    title: "15% Off!",
+    desc: "Applied to your entire order when you spend $30 or more",
+  },
+  {
+    title: "Free Kids Meal with 2 Regular Entrees",
+    desc: "   This deal lasts until the end of March! ",
+  },
+];
 
 /*
     The owner has decided to take the 15% off
@@ -123,10 +116,9 @@ const deals = [
     to replace the 15 with a 10.
 */
 
-deals.title = '10% off!'
+deals[0].title = deals[0].title.replace("15", "10");
 
-
-
+// console.log(deals);
 
 /*
     The restaurant is going to continue its
@@ -141,5 +133,6 @@ deals.title = '10% off!'
     to be displaying wrong on the live site.
 */
 
-deals.desc = "This deal last until the end of April"
+deals[1].desc = deals[1].desc.replace("March", "April").trim();
 
+console.log(deals);
